@@ -58,12 +58,8 @@ const Style = () => {
         background-color: var(--memory-bg);
         min-height: 100vh;
         min-height: 100dvh;
-        /* 让 footer 自然吸附底部：用 flex 列布局撑开主内容区 */
-        display: flex;
-        flex-direction: column;
-      }
-      #theme-memory #main {
-        flex: 1 0 auto;
+        /* 不用 flex 布局，避免移动端宽度被异常压缩 */
+        width: 100%;
       }
 
       /* ========== 主内容容器 ========== */

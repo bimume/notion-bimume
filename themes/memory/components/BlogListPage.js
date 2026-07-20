@@ -11,7 +11,7 @@ import Pagination from './Pagination'
  * @param {number} postCount - 文章总数
  */
 const BlogListPage = ({ page = 1, posts = [], postCount }) => {
-  const { NOTION_CONFIG } = useGlobal()
+  const { NOTION_CONFIG, fullWidth } = useGlobal()
   const postsPerPage = siteConfig('POSTS_PER_PAGE', 10, NOTION_CONFIG)
   const totalPage = Math.ceil(postCount / postsPerPage)
   const showNext = page < totalPage
@@ -27,7 +27,12 @@ const BlogListPage = ({ page = 1, posts = [], postCount }) => {
   }
 
   return (
-    <div id='posts-wrapper'>
+    <div
+      id='posts-wrapper'
+      style={{
+        maxWidth: fullWidth ? '100%' : 'var(--memory-content-width)',
+        margin: '0 auto'
+      }}>
       {posts.map(post => (
         <BlogCard key={post.id} post={post} />
       ))}

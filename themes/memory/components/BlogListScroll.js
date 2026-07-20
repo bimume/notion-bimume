@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BlogCard from './BlogCard'
+import { useGlobal } from '@/lib/global'
 
 /**
  * 滚动加载文章列表
@@ -8,6 +9,7 @@ import BlogCard from './BlogCard'
  * @param {Array} posts - 全部文章
  */
 const BlogListScroll = ({ posts = [] }) => {
+  const { fullWidth } = useGlobal()
   const PAGE_SIZE = 10
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
 
@@ -25,7 +27,12 @@ const BlogListScroll = ({ posts = [] }) => {
   const hasMore = visibleCount < posts.length
 
   return (
-    <div id='posts-wrapper'>
+    <div
+      id='posts-wrapper'
+      style={{
+        maxWidth: fullWidth ? '100%' : 'var(--memory-content-width)',
+        margin: '0 auto'
+      }}>
       {visiblePosts.map(post => (
         <BlogCard key={post.id} post={post} />
       ))}
