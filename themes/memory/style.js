@@ -325,12 +325,13 @@ const Style = () => {
         }
       }
 
-      /* 文章标题 */
+      /* 文章标题：居中 */
       #theme-memory .memory-post .post-title {
         font-size: 22px;
         font-weight: 700;
         margin: 0 0 8px;
         line-height: 1.4;
+        text-align: center;
       }
       #theme-memory .memory-post .post-title a {
         color: var(--memory-text);
@@ -340,27 +341,37 @@ const Style = () => {
         color: var(--memory-accent);
       }
 
-      /* 文章时间 */
+      /* 文章时间：居中 */
       #theme-memory .memory-post .post-time {
         display: block;
         font-size: 13px;
         color: var(--memory-grey);
         margin-bottom: 16px;
+        text-align: center;
       }
 
-      /* 文章摘要 */
+      /* 文章摘要：与原版 .content 一致，左右留白 30px */
       #theme-memory .memory-post .post-summary {
         font-size: 14px;
         line-height: 1.75;
         color: var(--memory-text);
         margin-bottom: 12px;
+        padding: 0 30px;
+      }
+      @media (max-width: 820px) {
+        #theme-memory .memory-post .post-summary {
+          padding: 0 20px;
+        }
       }
 
       /* readmore */
       #theme-memory .memory-post .readmore {
+        display: inline-block;
         font-size: 13px;
         color: var(--memory-brand);
         text-decoration: none;
+        margin-top: 20px;
+        padding: 0 30px;
       }
       #theme-memory .memory-post .readmore:hover {
         background: rgba(255, 152, 0, 0.1);

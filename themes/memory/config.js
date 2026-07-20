@@ -36,9 +36,7 @@ const CONFIG = {
   MEMORY_POST_LIST_SUMMARY: true, // 列表卡片显示摘要
   MEMORY_POST_LIST_COVER_FORCE: false, // 无封面时用站点封面兜底
   MEMORY_SIDEBAR_ENABLED: true, // 侧边栏开关
-  MEMORY_MENU_CATEGORY: true, // 侧边栏显示分类
-  MEMORY_MENU_TAG: true, // 侧边栏显示标签
-  MEMORY_MENU_ARCHIVE: true, // 侧边栏显示归档
+  MEMORY_MENU_ARCHIVE: false, // 侧边栏菜单显示归档
   MEMORY_LOADING_BAR: true, // 顶部加载条
   MEMORY_LOGO_TEXT: '', // logo 文字，留空则用站点标题
   MEMORY_SITE_DESC: '', // logo 下方描述，留空则用站点描述
