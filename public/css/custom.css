@@ -6,3 +6,141 @@
 .fa-info:before {
     content: "\f05a";
 }
+/* ==========================================================
+   memory-custom.css
+   目的：让 NotionNext 的 Nobelium 主题在视觉上接近
+        Hexo 主题 "Memory" (https://github.com/artchen/hexo-theme-memory)
+   用法：
+   1) 简单方式：把整个文件内容贴进 Notion Config 表的
+      GLOBAL_CSS 字段（4.2+ 版本支持），或者
+   2) 项目里 /public/css/custom.css 文件里（推荐，改完直接生效）
+   注意：Nobelium 用 TailWind 生成大量原子类，很多样式的优先级
+   很高，所以下面不少规则加了 !important。如果某条规则在你的
+   页面上没生效，用浏览器 DevTools 选中对应元素，把 class 换成
+   你实际看到的 class 名即可。
+   ========================================================== */
+
+/* ---------- 全局：字体、配色、留白 ---------- */
+:root {
+  --memory-text: #222;
+  --memory-muted: #999;
+  --memory-border: #eaeaea;
+  --memory-bg: #ffffff;
+}
+
+body {
+  background: var(--memory-bg) !important;
+  color: var(--memory-text) !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif !important;
+  line-height: 1.75;
+}
+
+/* 去掉卡片风格：阴影、圆角、渐变通通去掉，回归"纯文字"排版 */
+article, .card, .post-block, .notion-page, .glass, .shadow, .rounded,
+.rounded-md, .rounded-lg, .rounded-xl {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  background-image: none !important;
+}
+
+/* 主内容区收窄成单栏，贴近 Memory 的窄幅排版 */
+main, #wrapper, .container, #container-inner {
+  max-width: 720px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* ---------- 顶部 Logo / 站点名 ---------- */
+#top-nav, header {
+  border-bottom: 1px solid var(--memory-border) !important;
+  padding-bottom: 1rem;
+}
+
+/* ---------- 文章列表：标题 ---------- */
+h1, h2 {
+  font-weight: 700 !important;
+  letter-spacing: -0.01em;
+}
+
+/* 文章列表里的标题（对应 Memory 里的 <h2 class="title">） */
+article h2, .post-title, a.post-title {
+  font-size: 1.4rem !important;
+  color: var(--memory-text) !important;
+  text-decoration: none !important;
+}
+article h2:hover, .post-title:hover {
+  text-decoration: underline !important;
+}
+
+/* ---------- 日期：小号灰字，去掉图标/背景 ---------- */
+time, .post-meta, .meta-date {
+  font-size: 0.8rem !important;
+  color: var(--memory-muted) !important;
+  background: none !important;
+  padding: 0 !important;
+}
+
+/* ---------- 摘要正文 ---------- */
+.post-excerpt, .notion-text, article p {
+  color: var(--memory-text);
+  font-size: 1rem;
+}
+
+/* ---------- Read More 链接：纯文字，无按钮感 ---------- */
+a.read-more, .read-more a, a[href*="readmore"] {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--memory-text) !important;
+  background: none !important;
+  border: none !important;
+  text-decoration: underline;
+}
+/* ---------- 标签：去掉彩色胶囊，改成纯文字 + 分隔符 ---------- */
+.tag-item, .tags a, a.tag {
+  background: none !important;
+  border: none !important;
+  color: var(--memory-muted) !important;
+  padding: 0 !important;
+  margin-right: 0.5rem !important;
+  font-size: 0.8rem !important;
+}
+.tag-item::before, .tags a::before {
+  content: "#";
+}
+
+/* ---------- 侧边栏：头像 + 名字 + 导航，去装饰 ---------- */
+#sidebar, aside {
+  border: none !important;
+  background: none !important;
+}
+#sidebar img, aside img.avatar {
+  border-radius: 50% !important;
+  width: 72px !important;
+  height: 72px !important;
+}
+#sidebar nav a, aside nav a {
+  color: var(--memory-text) !important;
+  font-size: 0.9rem;
+}
+
+/* ---------- 文章间分隔线，模拟 Memory 列表的呼吸感 ---------- */
+article + article, .post-block + .post-block {
+  margin-top: 2.5rem !important;
+  padding-top: 2.5rem !important;
+  border-top: 1px solid var(--memory-border) !important;
+}
+
+/* ---------- 页脚：一行版权，极简 ---------- */
+footer {
+  border-top: 1px solid var(--memory-border) !important;
+  color: var(--memory-muted) !important;
+  font-size: 0.8rem !important;
+  text-align: left !important;
+  padding: 1.5rem 0 !important;
+  background: none !important;
+}
+footer a {
+  color: var(--memory-muted) !important;
+}
