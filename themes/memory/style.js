@@ -23,7 +23,7 @@ const Style = () => {
         --memory-card-bg: ${CONFIG.MEMORY_COLOR_WHITE};
         --memory-content-width: ${CONFIG.MEMORY_CONTENT_WIDTH};
         --memory-sidebar-width: ${CONFIG.MEMORY_SIDEBAR_WIDTH};
-        --memory-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+        --memory-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
       }
 
       /* ========== 主题 CSS 变量（暗色）========== */
@@ -35,7 +35,7 @@ const Style = () => {
         --memory-accent: ${CONFIG.MEMORY_COLOR_ACCENT_DARK};
         --memory-grey: ${CONFIG.MEMORY_COLOR_GREY_DARK};
         --memory-card-bg: ${CONFIG.MEMORY_COLOR_CARD_DARK};
-        --memory-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+        --memory-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
       }
 
       /* ========== 基础 ========== */
@@ -48,6 +48,12 @@ const Style = () => {
       }
 
       #theme-memory {
+        min-height: 100vh;
+        background-color: var(--memory-bg);
+      }
+
+      #theme-memory #site-wrapper {
+        background-color: var(--memory-bg);
         min-height: 100vh;
       }
 
