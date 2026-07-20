@@ -1,22 +1,11 @@
 import { siteConfig } from '@/lib/config'
-import { useRouter } from 'next/router'
-import { useState } from 'react'
 
 /**
  * 底部
- * 复刻 memory 主题：搜索框 + 社交链接 + 版权
+ * 复刻 memory 主题：社交链接 + 版权
+ * （已移除搜索框与 RSS feed）
  */
 export const Footer = () => {
-  const router = useRouter()
-  const [keyword, setKeyword] = useState('')
-
-  const handleSearch = e => {
-    e.preventDefault()
-    if (keyword.trim()) {
-      router.push(`/search/${encodeURIComponent(keyword.trim())}`)
-    }
-  }
-
   const socials = [
     { key: 'GITHUB', icon: 'fab fa-github', url: siteConfig('CONTACT_GITHUB') },
     {
@@ -31,11 +20,6 @@ export const Footer = () => {
       url: siteConfig('CONTACT_EMAIL')
         ? `mailto:${siteConfig('CONTACT_EMAIL')}`
         : null
-    },
-    {
-      key: 'RSS',
-      icon: 'fas fa-rss',
-      url: siteConfig('ENABLE_RSS') ? '/rss/feed.xml' : null
     }
   ].filter(s => s.url)
 
@@ -46,18 +30,6 @@ export const Footer = () => {
 
   return (
     <footer id='footer'>
-      {/* 搜索 */}
-      <div className='footer-search'>
-        <form onSubmit={handleSearch}>
-          <input
-            type='text'
-            value={keyword}
-            onChange={e => setKeyword(e.target.value)}
-            placeholder='Search'
-          />
-        </form>
-      </div>
-
       {/* 社交 */}
       {socials.length > 0 && (
         <div className='footer-social'>

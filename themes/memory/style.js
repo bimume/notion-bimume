@@ -48,13 +48,22 @@ const Style = () => {
       }
 
       #theme-memory {
+        /* 100dvh 自适应 iOS Chrome 地址栏收起/展开，100vh 作旧浏览器 fallback */
         min-height: 100vh;
+        min-height: 100dvh;
         background-color: var(--memory-bg);
       }
 
       #theme-memory #site-wrapper {
         background-color: var(--memory-bg);
         min-height: 100vh;
+        min-height: 100dvh;
+        /* 让 footer 自然吸附底部：用 flex 列布局撑开主内容区 */
+        display: flex;
+        flex-direction: column;
+      }
+      #theme-memory #main {
+        flex: 1 0 auto;
       }
 
       /* ========== 主内容容器 ========== */
@@ -155,6 +164,7 @@ const Style = () => {
         right: 0;
         width: var(--memory-sidebar-width);
         height: 100vh;
+        height: 100dvh;
         background: #1a1a1a;
         color: #c0c0c0;
         transform: translateX(var(--memory-sidebar-width));
@@ -666,23 +676,7 @@ const Style = () => {
         text-align: center;
         font-size: 13px;
         color: var(--memory-grey);
-      }
-      #theme-memory #footer .footer-search {
-        margin-bottom: 16px;
-      }
-      #theme-memory #footer .footer-search input {
-        background: transparent;
-        border: none;
-        border-bottom: 1px solid var(--memory-grey);
-        color: var(--memory-text);
-        padding: 6px 0;
-        font-size: 14px;
-        width: 200px;
-        outline: none;
-        text-align: center;
-      }
-      #theme-memory #footer .footer-search input::placeholder {
-        color: var(--memory-grey);
+        flex-shrink: 0;
       }
       #theme-memory #footer .footer-social {
         display: flex;
